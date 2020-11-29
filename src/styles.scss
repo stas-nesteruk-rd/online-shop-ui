@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+:root {
+  --blue: #1875f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fafafa;
+  font-family: 'Roboto', sans-serif;
+  //only for dev
+  margin: 0 0 200px;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: var(--blue);
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: 1;
+}
+
+button:active, button:focus {
+  outline: none;
+}
+
+input, textarea {outline:none;}
+input:active, textarea:active {outline:none;}
+
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
