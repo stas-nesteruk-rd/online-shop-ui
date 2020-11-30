@@ -1,0 +1,27 @@
+.main-container {
+}
+.main__row {
+  display: flex;
+}
+.main__column-nav {
+  max-width: 255px;
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+.main__column-content {
+  max-width: 850px;
+  flex-grow: 1;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    margin-bottom: 30px;
+  }
+
+  & > *:not(:nth-child(3n)){
+    margin-right: 18px;
+  }
+}

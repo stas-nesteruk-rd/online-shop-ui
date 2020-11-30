@@ -15,12 +15,16 @@
 }
 
 .header__logo {
-  color: #4d4d4d;
   font-weight: 900;
   font-size: 22px;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 1.76px;
+
+  a {
+    color: #4d4d4d;
+    text-decoration: none;
+  }
 }
 
 .header__search {

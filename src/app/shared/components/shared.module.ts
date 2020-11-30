@@ -11,6 +11,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CarouselComponent } from './carousel/carousel.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import {RouterModule} from '@angular/router';
 
 const material = [
   MatDividerModule,
@@ -27,16 +29,19 @@ const material = [
     SidebarComponent,
     FooterComponent,
     CarouselComponent,
+    ProductCardComponent,
   ],
   imports: [
     CommonModule,
-    ...material
+    ...material,
+    RouterModule,
   ],
   exports: [
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    ...material
+    ...material,
+    ProductCardComponent
   ]
 })
 export class SharedModule{}
