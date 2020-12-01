@@ -13,6 +13,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import {RouterModule} from '@angular/router';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {AuthService} from '../services/auth.services';
+import {HttpClientModule} from '@angular/common/http';
 
 const material = [
   MatDividerModule,
@@ -30,18 +34,24 @@ const material = [
     FooterComponent,
     CarouselComponent,
     ProductCardComponent,
+    LoginModalComponent,
   ],
   imports: [
     CommonModule,
     ...material,
     RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   exports: [
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
     ...material,
-    ProductCardComponent
-  ]
+    ProductCardComponent,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [AuthService]
 })
 export class SharedModule{}

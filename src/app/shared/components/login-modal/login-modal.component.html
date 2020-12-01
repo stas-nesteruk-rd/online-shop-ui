@@ -1,0 +1,62 @@
+<div class="backdrop"></div>
+
+<div class="modal">
+  <div class="card">
+    <div class="modal__header full-width">
+      <p>Sign in</p>
+      <button mat-icon-button (click)="closeModal.emit()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="modal__body">
+
+      <div class="error-msg full-width" *ngIf="!isFormValuesChanged && authService.error$ | async as error">
+        {{error}}
+      </div>
+
+      <form name="loginForm" [formGroup]="loginForm">
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email" (ngModelChange)="onChange()">
+          <mat-error *ngIf="loginForm.get('email').errors?.required">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email').errors?.email">
+            Email should be email
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" formControlName="password" (ngModelChange)="onChange()" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide"
+            [attr.aria-label] = "'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{ hide ?  'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.get('password').errors?.required">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password').errors?.minlength">
+            Password length should be more than {{loginForm.get('password').errors?.minlength.requiredLength}} characters
+          </mat-error>
+        </mat-form-field>
+
+        <div class="modal__footer">
+          <div class="modal__footer-temp-btn">
+            <button class="button" (click)="setCredential('ADMIN')">AS ADMIN</button>
+            <button class="button" (click)="setCredential('USER')">AS USER</button>
+          </div>
+
+          <button
+            type="submit"
+            class="button button-primary modal__footer-submit-button"
+            (click)="onSignIn()"
+            [disabled]="loginForm.invalid || isFetching"
+          >
+            SIGN IN
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

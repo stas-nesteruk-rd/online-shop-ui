@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../services/auth.services';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,17 @@ export class HeaderComponent implements OnInit {
   logoTitle = 'E-commerce';
   categories = ['Laptop', 'Phone', 'Tablet'];
   categorySelectTitle = 'Category';
-  constructor() { }
+  isLoginModalVisible = false;
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  showLoginModal(): void {
+    this.isLoginModalVisible = true;
+  }
+
+  onSignOut(): void {
+    this.authService.logout();
+  }
 }

@@ -83,3 +83,31 @@ input:active, textarea:active {outline:none;}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.button {
+  height: 40px;
+  border: 2px solid #f5f5f5;
+  background-color: #fafafa;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.button-primary {
+  color: #f5f5f5;
+  background-color: var(--blue);
+
+  &:hover {
+    background-color: #3184f1;
+  }
+}
