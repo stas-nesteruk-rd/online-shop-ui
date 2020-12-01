@@ -6,13 +6,30 @@ import { AdminLayoutComponent } from '../../shared/layouts/admin-layout/admin-la
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { CreateProductPageComponent } from './create-product-page/create-product-page.component';
 import { EditProductPageComponent } from './edit-product-page/edit-product-page.component';
+import {AuthGuard} from '../../shared/services/auth.guard';
 
 const routes: Routes = [
   {path: '', component: AdminLayoutComponent, children: [
-      {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-      {path: 'dashboard', component: DashboardPageComponent},
-      {path: 'product/create', component: CreateProductPageComponent},
-      {path: 'product/:id/edit', component: EditProductPageComponent}
+    {
+      path: '',
+      redirectTo: 'dashboard',
+      pathMatch: 'full'
+    },
+    {
+      path: 'dashboard',
+      component: DashboardPageComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'product/create',
+      component: CreateProductPageComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'product/:id/edit',
+      component: EditProductPageComponent,
+      canActivate: [AuthGuard]
+    }
   ]}
 ];
 
