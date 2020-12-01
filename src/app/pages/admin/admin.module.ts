@@ -2,10 +2,10 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
-import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
-import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
-import { CreateProductPageComponent } from './pages/create-product-page/create-product-page.component';
-import { EditProductPageComponent } from './pages/edit-product-page/edit-product-page.component';
+import { AdminLayoutComponent } from '../../shared/layouts/admin-layout/admin-layout.component';
+import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
+import { CreateProductPageComponent } from './create-product-page/create-product-page.component';
+import { EditProductPageComponent } from './edit-product-page/edit-product-page.component';
 
 const routes: Routes = [
   {path: '', component: AdminLayoutComponent, children: [
