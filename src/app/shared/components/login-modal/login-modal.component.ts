@@ -52,7 +52,7 @@ export class LoginModalComponent implements OnInit {
       this.loginForm.reset();
       this.isFetching = false;
       this.closeModal.emit();
-    });
+    }, () => this.isFetching = false);
   }
 
   setCredential(type: string): void {
@@ -67,7 +67,8 @@ export class LoginModalComponent implements OnInit {
   }
 
   onChange(): void {
-    console.log('change', this.isFormValuesChanged);
+    console.log('change', this.isFetching);
+    console.log('sss', this.loginForm);
     this.isFormValuesChanged = true;
   }
 }

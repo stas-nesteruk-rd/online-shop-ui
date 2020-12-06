@@ -7,6 +7,7 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { CreateProductPageComponent } from './create-product-page/create-product-page.component';
 import { EditProductPageComponent } from './edit-product-page/edit-product-page.component';
 import {AuthGuard} from '../../shared/services/auth.guard';
+import {MaterialModule} from '../../shared/components/material.module';
 
 const routes: Routes = [
   {path: '', component: AdminLayoutComponent, children: [
@@ -21,12 +22,12 @@ const routes: Routes = [
       canActivate: [AuthGuard]
     },
     {
-      path: 'product/create',
+      path: 'products/create',
       component: CreateProductPageComponent,
       canActivate: [AuthGuard]
     },
     {
-      path: 'product/:id/edit',
+      path: 'products/:id/edit',
       component: EditProductPageComponent,
       canActivate: [AuthGuard]
     }
@@ -37,6 +38,7 @@ const routes: Routes = [
   declarations: [AdminLayoutComponent, DashboardPageComponent, CreateProductPageComponent],
   imports: [
     CommonModule,
+    MaterialModule,
     RouterModule.forChild(routes)
   ],
   exports: [RouterModule],

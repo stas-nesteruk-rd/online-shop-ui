@@ -5,6 +5,7 @@ import {catchError, tap} from 'rxjs/operators';
 
 import {FireBaseAuthResponse, User} from '../interfaces';
 import {environment} from '../../../environments/environment';
+import {ToastrService} from 'ngx-toastr';
 
 const API_URL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
 const UNABLE_TO_LOGIN_ERR_MSG = 'Unable to login';
@@ -12,7 +13,10 @@ const UNABLE_TO_LOGIN_ERR_MSG = 'Unable to login';
 @Injectable({ providedIn: 'root'})
 export class AuthService {
   public error$: Subject<string> = new Subject<string>();
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private toastService: ToastrService
+  ) {}
 
   get token(): string {
     const expDate = new Date(localStorage.getItem('fb-token-expire'));
@@ -45,7 +49,7 @@ export class AuthService {
     return !!this.token;
   }
 
-  private setToken(response: FireBaseAuthResponse | null) {
+  private setToken(response: FireBaseAuthResponse | null): void {
     if (response) {
       console.log(response);
       const expireDate = new Date(new Date().getTime() + +response.expireIn * 1000);
@@ -61,6 +65,7 @@ export class AuthService {
     const { message } = error.error.error;
     if (message) {
       this.error$.next(UNABLE_TO_LOGIN_ERR_MSG);
+      this.toastService.error(UNABLE_TO_LOGIN_ERR_MSG, 'Auth error');
     }
 
     return throwError(error);

@@ -1,2 +1,84 @@
-<p>admin-layout works!</p>
-<router-outlet></router-outlet>
+<div class="wrapper" [ngClass]="{active: isSideBarOpened}">
+  <div class="navbar">
+    <div class="hamburger">
+      <div class="hamburger__inner" (click)="onSideBarToggle()">
+        <mat-icon>menu</mat-icon>
+      </div>
+    </div>
+
+    <div class="menu">
+      <div class="logo">
+        {{logoTitle}}
+      </div>
+
+      <div class="right__menu">
+        <ul>
+          <li><mat-icon>person</mat-icon>
+            <div class="profile_dropdown">
+              <div class="dd_item">Profile</div>
+              <div class="dd_item">Change Password</div>
+              <div class="dd_item">Logout</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <main class="main">
+    <div class="sidebar">
+      <div class="sidebar__inner">
+        <div class="profile">
+          <div class="img">
+            <img src="assets/img/profile/Male.jpg" alt="profile">
+          </div>
+          <div class="profile__info">
+            <p>Welcome</p>
+            <p class="profile__name">Alex John</p>
+          </div>
+
+        </div>
+        <div class="sidebar__list">
+          <ul>
+            <li>
+              <a href="#">
+                <mat-icon class="icon">dashboard</mat-icon>
+                <span class="title">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <mat-icon class="icon">list</mat-icon>
+                <span class="title">Products</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <mat-icon class="icon">analytics</mat-icon>
+                <span class="title">Orders</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <mat-icon class="icon">groups</mat-icon>
+                <span class="title">Users</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <mat-icon class="icon">widgets</mat-icon>
+                <span class="title">Factory</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+

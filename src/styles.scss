@@ -41,11 +41,15 @@ $online-shop-theme: mat-light-theme((
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   background-color: #fafafa;
-  font-family: 'Roboto', sans-serif;
   //only for dev
   margin: 0 0 200px;
 }
@@ -110,4 +114,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   &:hover {
     background-color: #3184f1;
   }
+}
+
+.toast-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400 !important;
 }

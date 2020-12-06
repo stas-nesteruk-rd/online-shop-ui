@@ -1,0 +1,69 @@
+.fixed-container {
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.fixed-icon-holder {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: #004d40;
+  color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.fixed {
+  width: 50px;
+  height: 50px;
+  background-color: #1875f0;
+}
+
+.fixed-options {
+  list-style-type: none;
+  margin: 0;
+
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+
+  display: none;
+
+  transition: all 0.3s ease;
+  transform: scale(0);
+  transform-origin: 85% bottom;
+
+}
+
+.fixed-icon-holder:hover + .fixed-options, .fixed-options:hover {
+  display: block;
+  transform: scale(1);
+}
+
+.fixed-options li {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.fixed-icon-holder-label {
+  padding: 2px 5px;
+  align-self: center;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 3px;
+  font-size: 16px;
+  background-color: #b3b3b3;
+  color: #fafafa;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  margin-right: 10px;
+}
