@@ -37,12 +37,14 @@
   padding: 0 20px;
 }
 
-.navbar .menu .logo {
-  color: #fafafa;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
+.header__logo {
+  font-weight: 400;
+  font-size: 18px;
 
+  a {
+    color: #fafafa;
+  }
+}
 .navbar .menu .right__menu ul li{
   position: relative;
   cursor: pointer;
@@ -169,4 +171,3 @@
   width: calc(100% - 80px);
   margin-left: 80px;
 }
-

@@ -8,6 +8,10 @@ import { CreateProductPageComponent } from './create-product-page/create-product
 import { EditProductPageComponent } from './edit-product-page/edit-product-page.component';
 import {AuthGuard} from '../../shared/services/auth.guard';
 import {MaterialModule} from '../../shared/components/material.module';
+import { ProductsPageComponent } from './products-page/products-page.component';
+import { OrdersPageComponent } from './orders-page/orders-page.component';
+import { UsersPageComponent } from './users-page/users-page.component';
+import { FactoryPageComponent } from './factory-page/factory-page.component';
 
 const routes: Routes = [
   {path: '', component: AdminLayoutComponent, children: [
@@ -22,6 +26,12 @@ const routes: Routes = [
       canActivate: [AuthGuard]
     },
     {
+      path: 'products',
+      component: ProductsPageComponent,
+      pathMatch: 'full',
+      canActivate: [AuthGuard]
+    },
+    {
       path: 'products/create',
       component: CreateProductPageComponent,
       canActivate: [AuthGuard]
@@ -30,12 +40,27 @@ const routes: Routes = [
       path: 'products/:id/edit',
       component: EditProductPageComponent,
       canActivate: [AuthGuard]
+    },
+    {
+      path: 'orders',
+      component: OrdersPageComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'users',
+      component: UsersPageComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'factory',
+      component: FactoryPageComponent,
+      canActivate: [AuthGuard]
     }
   ]}
 ];
 
 @NgModule({
-  declarations: [AdminLayoutComponent, DashboardPageComponent, CreateProductPageComponent],
+  declarations: [AdminLayoutComponent, DashboardPageComponent, CreateProductPageComponent, ProductsPageComponent, OrdersPageComponent, UsersPageComponent, FactoryPageComponent],
   imports: [
     CommonModule,
     MaterialModule,

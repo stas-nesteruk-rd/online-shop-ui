@@ -7,8 +7,8 @@
     </div>
 
     <div class="menu">
-      <div class="logo">
-        {{logoTitle}}
+      <div class="header__logo">
+        <a routerLink="/">{{logoTitle}}</a>
       </div>
 
       <div class="right__menu">
@@ -41,34 +41,13 @@
         </div>
         <div class="sidebar__list">
           <ul>
-            <li>
-              <a href="#">
-                <mat-icon class="icon">dashboard</mat-icon>
-                <span class="title">Dashboard</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <mat-icon class="icon">list</mat-icon>
-                <span class="title">Products</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <mat-icon class="icon">analytics</mat-icon>
-                <span class="title">Orders</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <mat-icon class="icon">groups</mat-icon>
-                <span class="title">Users</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <mat-icon class="icon">widgets</mat-icon>
-                <span class="title">Factory</span>
+            <li
+              *ngFor="let link of links"
+              routerLinkActive="active"
+            >
+              <a [routerLink]="[link.url]">
+                <mat-icon class="icon">{{link.iconName}}</mat-icon>
+                <span class="title">{{link.title}}</span>
               </a>
             </li>
           </ul>

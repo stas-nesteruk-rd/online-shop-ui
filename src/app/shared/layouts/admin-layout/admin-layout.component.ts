@@ -9,11 +9,11 @@ export class AdminLayoutComponent implements OnInit {
   logoTitle = 'E-commerce';
   isSideBarOpened = false;
   links = [
-    {url: '/admin/dashboard', name: 'Dashboard'},
-    {url: '/admin/products', name: 'Products'},
-    {url: '/admin/orders', name: 'Orders'},
-    {url: '/admin/users', name: 'Users'},
-    {url: '/admin/factory', name: 'Factory'},
+    {url: '/admin/dashboard', title: 'Dashboard', iconName: 'dashboard'},
+    {url: '/admin/products', title: 'Products', iconName: 'list'},
+    {url: '/admin/orders', title: 'Orders', iconName: 'analytics'},
+    {url: '/admin/users', title: 'Users', iconName: 'groups'},
+    {url: '/admin/factory', title: 'Factory', iconName: 'widgets'},
   ];
   constructor() { }
 
