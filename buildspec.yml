@@ -20,7 +20,9 @@ phases:
       # - echo testing...
       # - echo building...
       - echo $DEPLOY_ENVIRONMENT
-      - ng build --configuration=${DELOY_ENVIRONMENT} --aot
+      - echo $DEPLOY_COMMAND
+      - echo $BuildVariables
+      - npm run $DEPLOY_COMMAND
 artifacts:
   files:
     - "**/*"
