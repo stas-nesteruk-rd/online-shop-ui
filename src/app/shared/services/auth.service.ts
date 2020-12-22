@@ -7,7 +7,6 @@ import {ToastrService} from 'ngx-toastr';
 import {FireBaseAuthResponse, User} from '../interfaces';
 import {environment} from '../../../environments/environment';
 
-const API_URL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
 const UNABLE_TO_LOGIN_ERR_MSG = 'Unable to login';
 
 @Injectable({ providedIn: 'root'})
@@ -34,7 +33,7 @@ export class AuthService {
 
   login(user: User): Observable<any> {
     user.returnSecureToken = true;
-    return this.http.post(API_URL + environment.apiKey, user)
+    return this.http.post(environment.apiUrl + environment.apiKey, user)
       .pipe(
         tap(this.setToken),
         catchError(this.handleError.bind(this))

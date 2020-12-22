@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {ToastrService} from 'ngx-toastr';
 import {map, tap} from 'rxjs/operators';
 
-import {environment} from '../../../environments/environment';
 import {Category} from '../interfaces';
 
 @Injectable({ providedIn: 'root' })
@@ -17,7 +16,7 @@ export class CategoriesService {
   }
 
   create(category: Category): Observable<Category> {
-    return this.http.post<Category>(`${environment.dbUrl}/categories.json`, category)
+    return this.http.post<Category>('/categories.json', category)
       .pipe(
         tap(() => this.toastService
           .success('Category was added successfully', 'Added Category')),
@@ -25,7 +24,7 @@ export class CategoriesService {
   }
 
   fetch(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${environment.dbUrl}/categories.json`)
+    return this.http.get<Category[]>('/categories.json')
       .pipe(map((response: {[key: string]: any}) => {
         return Object
           .keys(response)
