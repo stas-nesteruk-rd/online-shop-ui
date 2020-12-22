@@ -20,7 +20,7 @@ phases:
       # - echo testing...
       # - echo building...
       - echo $DEPLOY_ENVIRONMENT
-      - ng build --configuration=$DELOY_ENVIRONMENT --aot
+      - ng build --configuration=${DELOY_ENVIRONMENT} --aot
 artifacts:
   files:
     - "**/*"
