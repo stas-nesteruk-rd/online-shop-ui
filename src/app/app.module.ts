@@ -19,7 +19,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
 };
 
 const toastSettings = {
-  timeOut: 85000,
+  timeOut: 5000,
   positionClass: 'toast-bottom-left',
 };
 

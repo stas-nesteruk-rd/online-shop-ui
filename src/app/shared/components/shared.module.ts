@@ -9,7 +9,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import {RouterModule} from '@angular/router';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {AuthService} from '../services/auth.services';
+import {AuthService} from '../services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import {MaterialModule} from './material.module';
 

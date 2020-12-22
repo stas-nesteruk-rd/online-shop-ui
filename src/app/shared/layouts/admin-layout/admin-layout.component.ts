@@ -10,6 +10,7 @@ export class AdminLayoutComponent implements OnInit {
   isSideBarOpened = false;
   links = [
     {url: '/admin/dashboard', title: 'Dashboard', iconName: 'dashboard'},
+    {url: '/admin/categories', title: 'Categories', iconName: 'category'},
     {url: '/admin/products', title: 'Products', iconName: 'list'},
     {url: '/admin/orders', title: 'Orders', iconName: 'analytics'},
     {url: '/admin/users', title: 'Users', iconName: 'groups'},
@@ -22,5 +23,10 @@ export class AdminLayoutComponent implements OnInit {
 
   onSideBarToggle(): void {
     this.isSideBarOpened = !this.isSideBarOpened;
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
   }
 }

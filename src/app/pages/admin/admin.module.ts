@@ -12,6 +12,7 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { UsersPageComponent } from './users-page/users-page.component';
 import { FactoryPageComponent } from './factory-page/factory-page.component';
+import { CategoriesPageComponent } from './categories-page/categories-page.component';
 
 const routes: Routes = [
   {path: '', component: AdminLayoutComponent, children: [
@@ -55,12 +56,26 @@ const routes: Routes = [
       path: 'factory',
       component: FactoryPageComponent,
       canActivate: [AuthGuard]
-    }
+    },
+    {
+      path: 'categories',
+      component: CategoriesPageComponent,
+      canActivate: [AuthGuard]
+    },
   ]}
 ];
 
 @NgModule({
-  declarations: [AdminLayoutComponent, DashboardPageComponent, CreateProductPageComponent, ProductsPageComponent, OrdersPageComponent, UsersPageComponent, FactoryPageComponent],
+  declarations: [
+    AdminLayoutComponent,
+    DashboardPageComponent,
+    CreateProductPageComponent,
+    ProductsPageComponent,
+    OrdersPageComponent,
+    UsersPageComponent,
+    FactoryPageComponent,
+    CategoriesPageComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,

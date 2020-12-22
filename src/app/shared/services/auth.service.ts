@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, Subject, throwError} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
+import {ToastrService} from 'ngx-toastr';
 
 import {FireBaseAuthResponse, User} from '../interfaces';
 import {environment} from '../../../environments/environment';
-import {ToastrService} from 'ngx-toastr';
 
 const API_URL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
 const UNABLE_TO_LOGIN_ERR_MSG = 'Unable to login';

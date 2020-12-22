@@ -7,5 +7,10 @@ export interface User {
 export interface FireBaseAuthResponse {
   idToken: string;
   expireIn: string;
-  email: string
+  email: string;
+}
+
+export interface Category {
+  name: string;
+  id?: string;
 }

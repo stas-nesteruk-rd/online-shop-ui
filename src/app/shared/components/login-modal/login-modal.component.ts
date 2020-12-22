@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {User} from '../../interfaces';
-import {AuthService} from '../../services/auth.services';
+import {AuthService} from '../../services/auth.service';
 
 const MIN_PASSWORD_LENGTH = 6;
 const ADMIN = 'ADMIN';

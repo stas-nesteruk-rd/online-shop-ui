@@ -1,0 +1,80 @@
+<div class="page-content">
+  <div class="page-content__header">
+    <div class="page-content__header-title">
+      {{title}}
+    </div>
+    <div class="page-content__header-actions">
+      <button
+        class="button button-primary"
+        (click)="create()"
+      >
+        Create category
+      </button>
+    </div>
+  </div>
+  <div class="page-content__main">
+    <div class="page-content__main-table">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="noData">
+          <mat-footer-cell *matFooterCellDef [attr.colspan]="columns.length">
+              No records found.
+          </mat-footer-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="loading">
+          <mat-footer-cell *matFooterCellDef [attr.colspan]="columns.length">
+            Loading, please wait...
+          </mat-footer-cell>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+
+        <mat-footer-row
+          *matFooterRowDef="['noData']"
+          [ngClass]="{hidden: isFetching || (dataSource.data.length > 0)}"></mat-footer-row>
+        <mat-footer-row
+          *matFooterRowDef="['loading']"
+          [ngClass]="{hidden: !isFetching}"
+        ></mat-footer-row>
+      </table>
+    </div>
+    <mat-paginator
+      [length]="categories.length"
+      [pageSize]="5"
+      [pageSizeOptions]="[1, 5, 10, 20]"
+      [ngClass]="{hidden: isFetching || (dataSource.filteredData && dataSource.filteredData.length < 5)}"
+      showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

@@ -147,7 +147,7 @@
   color: #004d40;
 }
 
-.main .container {
+.wrapper .main .main-container {
   position: absolute;
   top: 60px;
   width: calc(100% - 225px);
@@ -167,7 +167,7 @@
   margin-right: 0;
 }
 
-.wrapper.active .main .container {
+.wrapper.active .main .main-container {
   width: calc(100% - 80px);
   margin-left: 80px;
 }

@@ -1,0 +1,52 @@
+.page-content__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &-title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.page-content__main {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &-table {
+    min-height: 400px;
+    background-color: #ffffff;
+  }
+
+  .mat-paginator {
+    width: 600px;
+  }
+}
+
+.button {
+  padding: 0 5px;
+}
+
+table{
+  width: 600px;
+}
+
+.hidden {
+  display: none;
+}
+
+.mat-footer-row {
+  border: none;
+  position: absolute;
+  width: 600px;
+}
+
+.mat-footer-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
