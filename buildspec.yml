@@ -22,7 +22,7 @@ phases:
       - echo $DEPLOY_ENVIRONMENT
       - echo $DEPLOY_COMMAND
       - echo $BuildVariables
-      - npm run $DEPLOY_COMMAND
+      - ng build --configuration=testing
 artifacts:
   files:
     - "**/*"
