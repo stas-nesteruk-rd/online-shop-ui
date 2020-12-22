@@ -25,4 +25,4 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist/client-angular
+  base-directory: dist/online-shop

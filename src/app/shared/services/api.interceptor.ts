@@ -17,9 +17,13 @@ export class ApiInterceptor implements HttpInterceptor {
       'Content-Type': 'application/json',
     });
 
+    const domain = req.url.includes('login') 
+      ? environment.apiUrl + environment.apiKey 
+      : `${environment.dbUrl}/${req.url}`;
+
+    console.log('domain;', domain);
     req = req.clone({
-      url: `${environment.dbUrl}/${req.url}`,
-      withCredentials: true,
+      url: domain,
       headers,
     });
 

@@ -33,7 +33,7 @@ export class AuthService {
 
   login(user: User): Observable<any> {
     user.returnSecureToken = true;
-    return this.http.post(environment.apiUrl + environment.apiKey, user)
+    return this.http.post('login', user)
       .pipe(
         tap(this.setToken),
         catchError(this.handleError.bind(this))

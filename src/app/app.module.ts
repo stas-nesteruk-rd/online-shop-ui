@@ -10,12 +10,19 @@ import { HomePageComponent } from './pages/main/home-page/home-page.component';
 import { ProductPageComponent } from './pages/main/product-page/product-page.component';
 import { SharedModule } from './shared/components/shared.module';
 import {AuthInterceptor} from './shared/services/auth.interceptor';
+import {ApiInterceptor} from './shared/services/api.interceptor';
 import {ToastrModule} from 'ngx-toastr';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
   multi: true,
   useClass: AuthInterceptor
+};
+
+const API_INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: ApiInterceptor
 };
 
 const toastSettings = {
@@ -37,7 +44,7 @@ const toastSettings = {
     SharedModule,
     ToastrModule.forRoot(toastSettings)
   ],
-  providers: [INTERCEPTOR_PROVIDER],
+  providers: [API_INTERCEPTOR_PROVIDER, INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
